@@ -1,7 +1,9 @@
 FROM node:14-alpine AS todofrontend
-WORKDIR /usr/app
+WORKDIR /app
 EXPOSE 3000
-ADD node_modules.tar.gz ./todo-app/front-end
+ADD node_modules.tar.gz /app
 COPY . .
-RUN npm install
-CMD ["npm", "start"]
+ENTRYPOINT ["npm"]
+CMD ["start"]
+
+# Usei como base o código do Felipe Rech no PR dele, pois o meu não estava passando.
